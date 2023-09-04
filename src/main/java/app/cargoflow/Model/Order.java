@@ -10,6 +10,7 @@ import org.javalite.activejdbc.validation.Validator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 
+import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.util.List;
 import java.util.Set;
@@ -237,7 +238,22 @@ public class Order extends Model{
     public String getLogisticsOrderCode() {
     return getString("logistics_order_code");
 }
+    public String getTrackingNumber() {
+        return getString("tracking_number");
+    }
     public String getBigBagId() {
         return getString("big_bag_id");
+    }
+    public Integer getProviderId() {
+        return getInteger("provider_id");
+    }
+    public Timestamp getCreatedAt() {
+        return getTimestamp("created_at");
+    }
+    public String getReferenceId() {
+        return getString("reference_id");
+    }
+    public Integer getLastMileId() {
+        return getInteger("lastmile_id");
     }
 }

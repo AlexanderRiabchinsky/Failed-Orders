@@ -1,0 +1,46 @@
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral()
+        maven { url 'https://plugins.gradle.org/m2/'}
+    }
+    dependencies {
+        classpath 'gradle.plugin.de.schablinski.gradle.activejdbc:activejdbc-gradle-plugin:1.2'
+    }
+}
+plugins {
+    id 'org.springframework.boot' version '2.5.0'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+    id 'de.schablinski.activejdbc-gradle-plugin' version '1.0'
+}
+
+group 'app.cargoflow'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+//    maven { url 'http://git.cargoflow.app:8081/repository/maven-public/' }
+}
+
+dependencies {
+    implementation 'org.apache.poi:poi:3.17'
+    implementation 'org.apache.poi:poi-ooxml:3.17'
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'com.google.guava:guava:22.0'
+    implementation 'org.mindrot:jbcrypt:0.4'
+    implementation 'org.javalite:activejdbc:2.2'
+    implementation group: 'org.bouncycastle', name: 'bcpg-jdk15on', version: '1.64'
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.12.1'
+    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.12.1'
+    implementation 'org.postgresql:postgresql:42.2.2'
+//    implementation 'app.cargoflow.labels.model:labels-model:1.0.101'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+//    compile group: 'org.decimal4j', name: 'decimal4j', version: '1.0.3'
+}
+
+test {
+    useJUnitPlatform()
+}
